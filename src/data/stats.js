@@ -1,0 +1,42 @@
+export const statsData = [
+  {
+    id: '1',
+    icon: 'DollarSign',
+    label: 'Total Revenue',
+    value: 45231.89,
+    change: 20.1,
+    format: 'currency',
+  },
+  {
+    id: '2',
+    icon: 'Users',
+    label: 'Active Users',
+    value: 2350,
+    change: 15.3,
+    format: 'number',
+  },
+  {
+    id: '3',
+    icon: 'ShoppingCart',
+    label: 'Total Orders',
+    value: 1458,
+    change: 8.2,
+    format: 'number',
+  },
+  {
+    id: '4',
+    icon: 'TrendingUp',
+    label: 'Conversion Rate',
+    value: 3.24,
+    change: -2.4,
+    format: 'percentage',
+  },
+  {
+    id: '5',
+    icon: 'MessageSquare',
+    label: 'Pending Tickets',
+    value: 23,
+    change: -12.5,
+    format: 'number',
+  },
+];
