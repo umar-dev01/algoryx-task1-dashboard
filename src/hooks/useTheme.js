@@ -6,9 +6,11 @@ import { useState, useEffect } from 'react';
  */
 export function useTheme() {
   const [theme, setThemeState] = useState(() => {
-    // Check localStorage, fallback to system preference
+    // Check localStorage first
     const saved = localStorage.getItem('theme');
     if (saved) return saved;
+    
+    // If no saved preference, check system preference
     return window.matchMedia('(prefers-color-scheme: dark)').matches
       ? 'dark'
       : 'light';
@@ -16,7 +18,12 @@ export function useTheme() {
 
   useEffect(() => {
     // Apply theme to document root
-    document.documentElement.classList.toggle('dark', theme === 'dark');
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
     localStorage.setItem('theme', theme);
   }, [theme]);
 

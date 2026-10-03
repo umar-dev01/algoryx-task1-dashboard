@@ -26,34 +26,35 @@ export function StatCard({ icon, label, value, change, format, index }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
+      className="h-full"
     >
-      <Card padding="md" hover>
+      <Card padding="md" hover className="h-full">
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
               {label}
             </p>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               {formatValue(value)}
             </h3>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 flex-wrap">
               {isPositive ? (
-                <TrendingUp className="w-4 h-4 text-green-500" />
+                <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
               ) : (
-                <TrendingDown className="w-4 h-4 text-red-500" />
+                <TrendingDown className="w-4 h-4 text-red-600 dark:text-red-400 flex-shrink-0" />
               )}
               <span
-                className={`text-sm font-medium ${
-                  isPositive ? 'text-green-500' : 'text-red-500'
+                className={`text-sm font-medium flex-shrink-0 ${
+                  isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
                 }`}
               >
                 {Math.abs(change)}%
               </span>
-              <span className="text-sm text-gray-500">vs last month</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">vs last mo</span>
             </div>
           </div>
-          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-            <Icon className="w-6 h-6 text-primary" />
+          <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
+            <Icon className="w-6 h-6 text-primary dark:text-primary-light" />
           </div>
         </div>
       </Card>

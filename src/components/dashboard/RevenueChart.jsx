@@ -9,7 +9,7 @@ export function RevenueChart() {
 
   return (
     <Card>
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
         Revenue Trend
       </h2>
       <ResponsiveContainer width="100%" height={300}>
@@ -33,6 +33,7 @@ export function RevenueChart() {
               backgroundColor: isDark ? '#151522' : '#F5F0FF',
               border: `1px solid ${isDark ? 'rgba(124, 58, 237, 0.2)' : '#E9D5FF'}`,
               borderRadius: '8px',
+              color: isDark ? '#F3F4F6' : '#111827',
             }}
             labelStyle={{ color: isDark ? '#F3F4F6' : '#111827' }}
           />

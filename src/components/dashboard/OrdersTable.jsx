@@ -66,7 +66,7 @@ export function OrdersTable() {
   return (
     <Card>
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
           Recent Orders
         </h2>
         <Input
@@ -108,7 +108,7 @@ export function OrdersTable() {
                 key={order.id}
                 className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                   {order.orderId}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
@@ -120,7 +120,7 @@ export function OrdersTable() {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
                   {formatDate(order.date)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                   {formatCurrency(order.amount)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">

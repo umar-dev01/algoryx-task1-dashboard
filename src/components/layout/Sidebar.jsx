@@ -23,7 +23,7 @@ export function Sidebar({ isCollapsed, onToggleCollapse }) {
       }}
       className="hidden lg:flex flex-col bg-white dark:bg-background-dark-card border-r border-gray-200 dark:border-gray-700 h-screen fixed left-0 top-0"
     >
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+      <div className="p-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
         {!isCollapsed && (
           <h1 className="text-xl font-bold text-primary">Algoryx</h1>
         )}
@@ -40,13 +40,13 @@ export function Sidebar({ isCollapsed, onToggleCollapse }) {
         </button>
       </div>
 
-      <nav className="flex-1 p-4 space-y-2" role="navigation">
+      <nav className="flex-1 p-3 space-y-1" role="navigation">
         {navigationItems.map((item) => (
           <motion.a
             key={item.label}
             href="#"
             className={`
-              flex items-center gap-3 px-3 py-2 rounded-lg transition-colors
+              flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors
               ${item.active
                 ? 'bg-primary text-white'
                 : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'

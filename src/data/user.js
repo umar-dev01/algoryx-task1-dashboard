@@ -1,8 +1,8 @@
 export const userData = {
   id: '1',
-  name: 'Alex Thompson',
+  name: 'Umar Fazal',
   role: 'Frontend Developer Intern',
-  email: 'alex.thompson@algoryx.in',
+  email: 'umar.fazal@algoryx.in',
   avatar: null, // Will use initials fallback
   isOnline: true,
 };
