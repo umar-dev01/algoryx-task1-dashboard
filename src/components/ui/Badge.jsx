@@ -7,14 +7,14 @@ export function Badge({ children, variant = 'info', size = 'md' }) {
   };
 
   const sizeClasses = {
-    sm: 'px-3 py-1 text-xs',
-    md: 'px-4 py-1.5 text-sm',
+    sm: 'px-3 py-1 text-xs font-medium',
+    md: 'px-4 py-1.5 text-sm font-medium',
   };
 
   return (
     <span
       className={`
-        inline-flex items-center rounded-full font-semibold
+        inline-flex items-center rounded-full
         ${variantClasses[variant]}
         ${sizeClasses[size]}
       `}
