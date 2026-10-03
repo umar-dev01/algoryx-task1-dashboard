@@ -7,7 +7,7 @@ export function MainLayout({ children }) {
   const { isCollapsed, isMobileOpen, toggleCollapse, toggleMobile, closeMobile } = useSidebar();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-background-dark">
+    <div className="min-h-screen bg-page">
       <Sidebar isCollapsed={isCollapsed} onToggleCollapse={toggleCollapse} />
       <MobileDrawer isOpen={isMobileOpen} onClose={closeMobile} />
       <TopNavigation

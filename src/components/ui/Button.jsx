@@ -9,9 +9,9 @@ export function Button({
   className = '',
 }) {
   const variantClasses = {
-    primary: 'bg-primary hover:bg-primary-dark text-white',
-    secondary: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
-    ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300',
+    primary: 'bg-brand hover:bg-brand/90 text-white',
+    secondary: 'border-2 border-brand text-brand hover:bg-brand hover:text-white',
+    ghost: 'hover:bg-brand/10 text-ink',
     danger: 'bg-red-600 hover:bg-red-700 text-white',
   };
 

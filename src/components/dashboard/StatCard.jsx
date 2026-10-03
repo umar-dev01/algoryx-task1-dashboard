@@ -31,30 +31,30 @@ export function StatCard({ icon, label, value, change, format, index }) {
       <Card padding="md" hover className="h-full">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+            <p className="text-sm text-muted mb-1">
               {label}
             </p>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-2xl font-bold text-ink mb-2">
               {formatValue(value)}
             </h3>
             <div className="flex items-center gap-1 flex-wrap">
               {isPositive ? (
-                <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
+                <TrendingUp className="w-4 h-4 text-green-600 flex-shrink-0" />
               ) : (
-                <TrendingDown className="w-4 h-4 text-red-600 dark:text-red-400 flex-shrink-0" />
+                <TrendingDown className="w-4 h-4 text-red-600 flex-shrink-0" />
               )}
               <span
                 className={`text-sm font-medium flex-shrink-0 ${
-                  isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
+                  isPositive ? 'text-green-600' : 'text-red-600'
                 }`}
               >
                 {Math.abs(change)}%
               </span>
-              <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">vs last mo</span>
+              <span className="text-xs text-muted whitespace-nowrap">vs last mo</span>
             </div>
           </div>
-          <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
-            <Icon className="w-6 h-6 text-primary dark:text-primary-light" />
+          <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+            <Icon className="w-6 h-6 text-brand" />
           </div>
         </div>
       </Card>

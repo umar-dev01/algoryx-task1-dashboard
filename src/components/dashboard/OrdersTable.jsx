@@ -66,7 +66,7 @@ export function OrdersTable() {
   return (
     <Card>
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="text-xl font-semibold text-ink">
           Recent Orders
         </h2>
         <Input
@@ -79,13 +79,13 @@ export function OrdersTable() {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-          <thead className="bg-gray-50 dark:bg-gray-800">
+        <table className="min-w-full divide-y divide-line">
+          <thead className="bg-table-head">
             <tr>
               {['orderId', 'customer', 'product', 'date', 'amount', 'status'].map((column) => (
                 <th
                   key={column}
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="px-6 py-3 text-left text-xs font-medium text-ink uppercase tracking-wider cursor-pointer hover:bg-brand/5"
                   onClick={() => handleSort(column)}
                 >
                   <div className="flex items-center gap-2">
@@ -102,25 +102,25 @@ export function OrdersTable() {
               ))}
             </tr>
           </thead>
-          <tbody className="bg-white dark:bg-background-dark-card divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody className="bg-card divide-y divide-line">
             {paginatedOrders.map((order) => (
               <tr
                 key={order.id}
-                className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                className="hover:bg-brand/5 transition-colors"
               >
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-ink">
                   {order.orderId}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-ink">
                   {order.customer}
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                <td className="px-6 py-4 text-sm text-ink">
                   {order.product}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-ink">
                   {formatDate(order.date)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-ink">
                   {formatCurrency(order.amount)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -135,7 +135,7 @@ export function OrdersTable() {
       </div>
 
       <div className="mt-4 flex items-center justify-between">
-        <p className="text-sm text-gray-700 dark:text-gray-300">
+        <p className="text-sm text-muted">
           Showing {(currentPage - 1) * ordersPerPage + 1} to{' '}
           {Math.min(currentPage * ordersPerPage, sortedOrders.length)} of{' '}
           {sortedOrders.length} orders

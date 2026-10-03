@@ -33,16 +33,16 @@ export function MobileDrawer({ isOpen, onClose }) {
             animate={{ x: 0 }}
             exit={{ x: -256 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed left-0 top-0 w-64 h-screen bg-white dark:bg-background-dark-card z-50 flex flex-col lg:hidden"
+            className="fixed left-0 top-0 w-64 h-screen bg-surface z-50 flex flex-col lg:hidden"
           >
-            <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-              <h1 className="text-xl font-bold text-primary">Algoryx</h1>
+            <div className="p-4 border-b border-line flex items-center justify-between">
+              <h1 className="text-xl font-bold text-brand">Algoryx</h1>
               <button
                 onClick={onClose}
                 aria-label="Close menu"
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 rounded-lg hover:bg-brand/10 transition-colors"
               >
-                <X className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <X className="w-5 h-5 text-muted" />
               </button>
             </div>
 
@@ -54,8 +54,8 @@ export function MobileDrawer({ isOpen, onClose }) {
                   className={`
                     flex items-center gap-3 px-3 py-2 rounded-lg transition-colors
                     ${item.active
-                      ? 'bg-primary text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'bg-brand/10 text-brand'
+                      : 'text-ink hover:bg-brand/5'
                     }
                   `}
                 >

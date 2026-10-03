@@ -21,21 +21,21 @@ export function Sidebar({ isCollapsed, onToggleCollapse }) {
         duration: 0.3,
         ease: 'easeInOut',
       }}
-      className="hidden lg:flex flex-col bg-white dark:bg-background-dark-card border-r border-gray-200 dark:border-gray-700 h-screen fixed left-0 top-0"
+      className="hidden lg:flex flex-col bg-surface border-r border-line h-screen fixed left-0 top-0"
     >
-      <div className="p-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+      <div className="p-3 border-b border-line flex items-center justify-between">
         {!isCollapsed && (
-          <h1 className="text-xl font-bold text-primary">Algoryx</h1>
+          <h1 className="text-xl font-bold text-brand">Algoryx</h1>
         )}
         <button
           onClick={onToggleCollapse}
           aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="p-2 rounded-lg hover:bg-brand/10 transition-colors"
         >
           {isCollapsed ? (
-            <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+            <ChevronRight className="w-5 h-5 text-muted" />
           ) : (
-            <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+            <ChevronLeft className="w-5 h-5 text-muted" />
           )}
         </button>
       </div>
@@ -48,8 +48,8 @@ export function Sidebar({ isCollapsed, onToggleCollapse }) {
             className={`
               flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors
               ${item.active
-                ? 'bg-primary text-white'
-                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                ? 'bg-brand/10 text-brand'
+                : 'text-ink hover:bg-brand/5'
               }
               ${isCollapsed ? 'justify-center' : ''}
             `}

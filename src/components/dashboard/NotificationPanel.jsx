@@ -21,29 +21,29 @@ export function NotificationPanel({ notifications, markAsRead, markAllAsRead, is
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.95 }}
         transition={{ duration: 0.2 }}
-        className="absolute right-0 top-14 w-96 max-h-96 overflow-y-auto bg-white dark:bg-background-dark-card border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50"
+        className="absolute right-0 top-14 w-96 max-h-96 overflow-y-auto bg-surface border border-line rounded-lg shadow-xl z-50"
       >
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-          <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+        <div className="p-4 border-b border-line flex items-center justify-between">
+          <h3 className="font-semibold text-ink">
             Notifications
           </h3>
           <button
             onClick={markAllAsRead}
-            className="text-sm text-primary hover:text-primary-dark"
+            className="text-sm text-brand hover:text-brand/90"
           >
             Mark all as read
           </button>
         </div>
 
-        <div className="divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="divide-y divide-line">
           {notifications.map((notification) => {
             const Icon = iconMap[notification.type] || Mail;
             return (
               <div
                 key={notification.id}
                 onClick={() => markAsRead(notification.id)}
-                className={`p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors ${
-                  !notification.isRead ? 'bg-blue-50 dark:bg-blue-900/20' : ''
+                className={`p-4 cursor-pointer hover:bg-brand/5 transition-colors ${
+                  !notification.isRead ? 'bg-brand/10' : ''
                 }`}
               >
                 <div className="flex gap-3">
@@ -53,18 +53,18 @@ export function NotificationPanel({ notifications, markAsRead, markAllAsRead, is
                     notification.type === 'alert' ? 'bg-red-100 text-red-600' :
                     notification.type === 'signup' ? 'bg-purple-100 text-purple-600' :
                     notification.type === 'ticket' ? 'bg-orange-100 text-orange-600' :
-                    'bg-gray-100 text-gray-600'
+                    'bg-brand/10 text-brand'
                   }`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                    <p className="text-sm font-medium text-ink">
                       {notification.title}
                     </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    <p className="text-sm text-muted mt-1">
                       {notification.message}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                    <p className="text-xs text-muted mt-1">
                       {formatRelativeTime(notification.timestamp)}
                     </p>
                   </div>

@@ -1,3 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --page: #FFFFFF;
+  --surface: #FFFFFF;
+  --card: #F5F0FF;
+  --line: #E9D5FF;
+  --ink: #111827;
+  --muted: #6B7280;
+  --input: #FFFFFF;
+  --table-head: #EDE5FF;
+}
+
+.dark {
+  color-scheme: dark;
+  --page: #0B0B14;
+  --surface: #0F0F1A;
+  --card: #151522;
+  --line: #2A2A40;
+  --ink: #F3F4F6;
+  --muted: #9CA3AF;
+  --input: #1A1A2B;
+  --table-head: #1A1A2B;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-input: var(--input);
+  --color-table-head: var(--table-head);
+  --color-brand: #7C3AED;
+  --color-brand-light: #A78BFA;
+  --color-accent: #2563EB;
+}
+
+body {
+  @apply bg-page text-ink font-sans antialiased;
+}

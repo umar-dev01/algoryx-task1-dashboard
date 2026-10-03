@@ -24,8 +24,8 @@ export function TopNavigation({ isCollapsed, onMenuClick }) {
     <header
       className={`
         fixed top-0 right-0 h-16 z-40
-        bg-white dark:bg-background-dark-card
-        border-b border-gray-200 dark:border-gray-700
+        bg-surface
+        border-b border-line
         transition-all duration-300
         ${isCollapsed ? 'left-0 lg:left-20' : 'left-0 lg:left-64'}
       `}
@@ -34,9 +34,9 @@ export function TopNavigation({ isCollapsed, onMenuClick }) {
         <button
           onClick={onMenuClick}
           aria-label="Toggle menu"
-          className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+          className="lg:hidden p-2 rounded-lg hover:bg-brand/10"
         >
-          <Menu className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+          <Menu className="w-5 h-5 text-muted" />
         </button>
 
         <div className="hidden sm:block flex-1 max-w-md">
@@ -54,9 +54,9 @@ export function TopNavigation({ isCollapsed, onMenuClick }) {
             <button
               onClick={togglePanel}
               aria-label={`Notifications. ${unreadCount} unread`}
-              className="relative p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="relative p-2 rounded-lg hover:bg-brand/10 transition-colors"
             >
-              <Bell className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+              <Bell className="w-5 h-5 text-muted" />
               {unreadCount > 0 && (
                 <span className="absolute top-1 right-1 w-4 h-4 bg-red-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
                   {unreadCount}

@@ -9,8 +9,8 @@ export function Card({ children, className = '', padding = 'md', hover = false }
   return (
     <div
       className={`
-        bg-background-light-card dark:bg-background-dark-card
-        border border-border-light dark:border-gray-700
+        bg-card
+        border border-line
         rounded-2xl shadow-sm
         ${hover ? 'hover:shadow-md transition-shadow duration-200' : ''}
         ${paddingClasses[padding]}

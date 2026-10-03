@@ -22,7 +22,7 @@ export function Avatar({ src, alt, name, size = 'md' }) {
       className={`
         ${sizeClasses[size]}
         rounded-full
-        bg-primary text-white
+        bg-brand text-white
         flex items-center justify-center
         font-semibold
       `}

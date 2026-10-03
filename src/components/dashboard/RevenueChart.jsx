@@ -9,15 +9,15 @@ export function RevenueChart() {
 
   return (
     <Card>
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+      <h2 className="text-xl font-semibold text-ink mb-4">
         Revenue Trend
       </h2>
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={chartData}>
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke={isDark ? '#374151' : '#E5E7EB'}
-            opacity={0.3}
+            stroke={isDark ? '#2A2A40' : '#E9D5FF'}
+            opacity={0.5}
           />
           <XAxis
             dataKey="month"
@@ -31,7 +31,7 @@ export function RevenueChart() {
           <Tooltip
             contentStyle={{
               backgroundColor: isDark ? '#151522' : '#F5F0FF',
-              border: `1px solid ${isDark ? 'rgba(124, 58, 237, 0.2)' : '#E9D5FF'}`,
+              border: `1px solid ${isDark ? '#2A2A40' : '#E9D5FF'}`,
               borderRadius: '8px',
               color: isDark ? '#F3F4F6' : '#111827',
             }}
