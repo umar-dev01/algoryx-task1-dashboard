@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, DollarSign, AlertCircle, UserPlus, MessageSquare, Mail } from 'lucide-react';
 import { formatRelativeTime } from '../../utils/formatters';
+import { dropdownVariants } from '../../utils/motion';
 
 const iconMap = {
   order: ShoppingCart,
@@ -17,32 +18,39 @@ export function NotificationPanel({ notifications, markAsRead, markAllAsRead, is
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-        transition={{ duration: 0.2 }}
-        className="absolute right-0 top-14 w-96 max-h-96 overflow-y-auto bg-surface border border-line rounded-lg shadow-xl z-50"
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={dropdownVariants}
+        style={{ 
+          boxShadow: 'var(--shadow-bubble)',
+          transformOrigin: 'top right'
+        }}
+        className="absolute right-0 top-14 w-96 max-h-96 overflow-y-auto bg-surface border border-line rounded-3xl z-50"
       >
-        <div className="p-4 border-b border-line flex items-center justify-between">
+        <div className="p-4 border-b border-line flex items-center justify-between sticky top-0 bg-surface">
           <h3 className="font-semibold text-ink">
             Notifications
           </h3>
-          <button
+          <motion.button
             onClick={markAllAsRead}
-            className="text-sm text-brand hover:text-brand/90"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="text-sm text-brand hover:text-brand/90 font-medium"
           >
             Mark all as read
-          </button>
+          </motion.button>
         </div>
 
         <div className="divide-y divide-line">
           {notifications.map((notification) => {
             const Icon = iconMap[notification.type] || Mail;
             return (
-              <div
+              <motion.div
                 key={notification.id}
                 onClick={() => markAsRead(notification.id)}
-                className={`p-4 cursor-pointer hover:bg-brand/5 transition-colors ${
+                whileHover={{ backgroundColor: 'rgba(124,58,237,0.05)' }}
+                className={`p-4 cursor-pointer transition-colors ${
                   !notification.isRead ? 'bg-brand/10' : ''
                 }`}
               >
@@ -69,10 +77,10 @@ export function NotificationPanel({ notifications, markAsRead, markAllAsRead, is
                     </p>
                   </div>
                   {!notification.isRead && (
-                    <div className="w-2 h-2 rounded-full bg-blue-600 mt-2"></div>
+                    <div className="w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

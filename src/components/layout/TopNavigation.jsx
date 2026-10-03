@@ -1,10 +1,12 @@
 import { Search, Bell, Menu } from 'lucide-react';
 import { useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Input } from '../ui/Input';
 import { ThemeToggle } from '../dashboard/ThemeToggle';
 import { NotificationPanel } from '../dashboard/NotificationPanel';
 import { useNotifications } from '../../hooks/useNotifications';
 import { useClickOutside } from '../../hooks/useClickOutside';
+import { buttonBubbleVariants, badgePopVariants } from '../../utils/motion';
 
 export function TopNavigation({ isCollapsed, onMenuClick }) {
   const {
@@ -31,13 +33,17 @@ export function TopNavigation({ isCollapsed, onMenuClick }) {
       `}
     >
       <div className="h-full px-4 flex items-center justify-between gap-4">
-        <button
+        <motion.button
           onClick={onMenuClick}
+          variants={buttonBubbleVariants}
+          whileHover="hover"
+          whileTap="tap"
           aria-label="Toggle menu"
-          className="lg:hidden p-2 rounded-lg hover:bg-brand/10"
+          style={{ boxShadow: 'var(--shadow-bubble)' }}
+          className="lg:hidden p-2.5 rounded-full hover:bg-brand/10"
         >
           <Menu className="w-5 h-5 text-muted" />
-        </button>
+        </motion.button>
 
         <div className="hidden sm:block flex-1 max-w-md">
           <Input
@@ -51,18 +57,31 @@ export function TopNavigation({ isCollapsed, onMenuClick }) {
           <ThemeToggle />
           
           <div className="relative" ref={notificationRef}>
-            <button
+            <motion.button
               onClick={togglePanel}
+              variants={buttonBubbleVariants}
+              whileHover="hover"
+              whileTap="tap"
               aria-label={`Notifications. ${unreadCount} unread`}
-              className="relative p-2 rounded-lg hover:bg-brand/10 transition-colors"
+              style={{ boxShadow: 'var(--shadow-bubble)' }}
+              className="relative p-2.5 rounded-full hover:bg-brand/10 transition-colors hover:shadow-[--shadow-bubble-hover] active:shadow-[--shadow-bubble-press]"
             >
               <Bell className="w-5 h-5 text-muted" />
-              {unreadCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-red-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
-                  {unreadCount}
-                </span>
-              )}
-            </button>
+              <AnimatePresence>
+                {unreadCount > 0 && (
+                  <motion.span
+                    key="badge"
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={badgePopVariants}
+                    className="absolute -top-0.5 -right-0.5 min-w-5 h-5 px-1 bg-red-600 text-white text-xs font-bold rounded-full flex items-center justify-center ring-2 ring-surface"
+                  >
+                    {unreadCount}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
             <NotificationPanel
               notifications={notifications}
               markAsRead={markAsRead}

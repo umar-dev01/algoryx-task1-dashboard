@@ -106,9 +106,9 @@ export function OrdersTable() {
             {paginatedOrders.map((order) => (
               <tr
                 key={order.id}
-                className="hover:bg-brand/5 transition-colors"
+                className="hover:bg-brand/5 transition-all duration-200 group"
               >
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-ink">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-ink group-hover:translate-x-0.5 transition-transform">
                   {order.orderId}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-ink">
