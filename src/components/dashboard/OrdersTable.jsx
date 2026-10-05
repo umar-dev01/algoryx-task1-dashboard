@@ -92,7 +92,7 @@ export function OrdersTable() {
 
   return (
     <Card>
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <h2 className="text-xl font-semibold text-ink">
           Recent Orders
         </h2>
@@ -101,7 +101,7 @@ export function OrdersTable() {
           onChange={handleSearch}
           placeholder="Search orders..."
           icon={<Search className="w-4 h-4" />}
-          className="w-64"
+          className="w-full sm:w-64"
         />
       </div>
 
