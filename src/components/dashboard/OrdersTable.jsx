@@ -194,13 +194,13 @@ export function OrdersTable() {
       </div>
 
       {sortedOrders.length > 0 && (
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-sm text-muted">
             Showing {(currentPage - 1) * ordersPerPage + 1} to{' '}
             {Math.min(currentPage * ordersPerPage, sortedOrders.length)} of{' '}
             {sortedOrders.length} orders
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Button
               variant="secondary"
               size="sm"
